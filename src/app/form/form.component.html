@@ -23,15 +23,12 @@
   </div>
   <button type="submit" class="btn btn-primary">Display Questions</button>
 </form>
-
+<button (click)="shown = !shown" class="btn btn-secondary">{{ shown ? 'Masquer les réponses' : 'Afficher les réponses' }}</button>
 <div *ngIf="questions">
   <div *ngFor="let q of questions">
-    <p>
-      {{ q.question }}
+    <p [innerHTML]='q.question'>
     </p>
-    <p [hidden]='!shown'  class="bg-info text-white">
-      {{ q.correct_answer}}
+    <p [hidden]='!shown'  class="bg-info text-white" [innerHTML]='q.correct_answer'>
     </p>
   </div>
-  <button (click)="shown = !shown">{{ shown ? 'Masquer les réponses' : 'Afficher les réponses' }}</button>
 </div>
