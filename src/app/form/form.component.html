@@ -26,6 +26,12 @@
 
 <div *ngIf="questions">
   <div *ngFor="let q of questions">
-    {{ q.question }}
+    <p>
+      {{ q.question }}
+    </p>
+    <p [hidden]='!shown'  class="bg-info text-white">
+      {{ q.correct_answer}}
+    </p>
   </div>
+  <button (click)="shown = !shown">{{ shown ? 'Masquer les réponses' : 'Afficher les réponses' }}</button>
 </div>

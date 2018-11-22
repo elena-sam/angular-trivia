@@ -9,6 +9,7 @@ import { FormControl, FormBuilder, FormsModule, ReactiveFormsModule, FormGroup }
 })
 export class FormComponent implements OnInit {
   questions: any;
+  shown: boolean;
 
   categories = [
     {value: 'any', title: 'Any Category' },
@@ -61,7 +62,9 @@ export class FormComponent implements OnInit {
 
   constructor(private triviaService: TriviaService, private fb: FormBuilder) { }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    this.shown = false;
+  }
 
   // https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean
 
