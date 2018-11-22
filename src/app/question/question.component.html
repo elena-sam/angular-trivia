@@ -1,0 +1,55 @@
+<div>
+  Number of Questions: <input [(ngModel)]="NumberOfQuestion" name="NumberOfQuestion" list="question">
+  <datalist id="question">
+    <option value="1">
+    <option value="2">
+    <option value="3">
+    <option value="4">
+    <option value="5">
+    <option value="6">
+    <option value="7">
+    <option value="8">
+  </datalist>
+</div>
+<div>
+  Select Category: <input [(ngModel)]="SelectCat" name="SelectCat" list="category">
+  <datalist id="category">
+    <option>10</option>
+    <option>14</option>
+    <option>19</option>
+    <option>16</option>
+    <option>13</option>
+    <option>12</option>
+    <option>29</option>
+    <option>17</option>
+    <option>20</option>
+    <option>9</option>
+  </datalist>
+</div>
+<div>
+  Select Difficulty: <input [(ngModel)]="SelectDif" name="SelectDif" list="dif">
+  <datalist id="dif">
+    <option>easy</option>
+    <option>medium</option>
+    <option>hard</option>
+  </datalist>
+</div>
+<div>
+  Select Type: <input [(ngModel)]="SelectType" name="SelectType" list="type">
+  <datalist id="type">
+    <option>True/False</option>
+    <option>multiple</option>
+  </datalist>
+</div>
+
+<button (click)="send()">Submit</button>
+
+<button (click)="afficher()">Afficher</button>
+
+<div *ngFor="let total of category">
+  <p><strong>Categorie:</strong> {{category[0].category}} </p>
+  <p><strong>Type:</strong> {{category[0].type}}</p>
+  <p><strong>Difficulté:</strong> {{category[0].difficulty}}</p>
+  <p><strong>Question:</strong> {{category[0].question}}</p>
+</div>
+
