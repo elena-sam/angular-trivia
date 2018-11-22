@@ -55,6 +55,7 @@ export class FormComponent implements OnInit {
   ];
 
   qForm = this.fb.group({
+    num_q: [10],
     categ: [this.categories[0].value],
     difficulty: [this.difficulties[0].value],
     type: [this.types[0].value]
@@ -72,11 +73,12 @@ export class FormComponent implements OnInit {
     let c = this.qForm.get('categ').value;
     let d = this.qForm.get('difficulty').value;
     let t = this.qForm.get('type').value;
+    const num = this.qForm.get('num_q').value;
     c = c === 'any' ? '' : `&category=${c}`;
     d = d === 'any' ? '' : `&difficulty=${d}`;
     t = t === 'any' ? '' : `&type=${t}`;
     console.log(`https://opentdb.com/api.php?amount=10${c}${d}${t}`);
-    this.triviaService.getQ(`https://opentdb.com/api.php?amount=10${c}${d}${t}`)
+    this.triviaService.getQ(`https://opentdb.com/api.php?amount=${num}${c}${d}${t}`)
       .subscribe(res => {
         this.questions = res.results;
         console.log(res.results);

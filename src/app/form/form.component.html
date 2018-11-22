@@ -1,7 +1,7 @@
 <form (ngSubmit)="getQuestions()" [formGroup]="qForm">
   <div class="form-group">
     <label for="numQuest">Number of Questions</label>
-    <input type="number" class="form-control" id="numQuest" value="10">
+    <input type="number" class="form-control" id="numQuest" value="10" formControlName="num_q">
   </div>
   <div class="form-group">
     <label for="categ">Category</label>
