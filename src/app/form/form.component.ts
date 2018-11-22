@@ -10,6 +10,8 @@ import { FormControl, FormBuilder, FormsModule, ReactiveFormsModule, FormGroup }
 export class FormComponent implements OnInit {
   questions: any;
   shown: boolean;
+  // to display button that shows answers
+  ans: boolean;
 
   categories = [
     {value: 'any', title: 'Any Category' },
@@ -65,6 +67,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.shown = false;
+    this.ans = false;
   }
 
   // https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean
@@ -83,5 +86,6 @@ export class FormComponent implements OnInit {
         this.questions = res.results;
         console.log(res.results);
       });
+    this.ans = true;
   }
 }

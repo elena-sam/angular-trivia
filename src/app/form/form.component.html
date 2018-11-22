@@ -1,34 +1,36 @@
-<form (ngSubmit)="getQuestions()" [formGroup]="qForm">
-  <div class="form-group">
-    <label for="numQuest">Number of Questions</label>
-    <input type="number" class="form-control" id="numQuest" value="10" formControlName="num_q">
-  </div>
-  <div class="form-group">
-    <label for="categ">Category</label>
-    <select class="form-control" id="categ" formControlName="categ">
-      <option *ngFor="let cat of categories"[value]="cat.value">{{ cat.title }}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="difficulty">Difficulty</label>
-    <select class="form-control" id="difficulty" formControlName="difficulty">
-      <option *ngFor="let diff of difficulties" [value]="diff.value">{{ diff.level }}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="type">Type</label>
-    <select class="form-control" id="type" formControlName="type">
-      <option *ngFor="let tp of types" [value]="tp.value">{{ tp.name }}</option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-primary">Display Questions</button>
-</form>
-<button (click)="shown = !shown" class="btn btn-secondary">{{ shown ? 'Masquer les réponses' : 'Afficher les réponses' }}</button>
-<div *ngIf="questions">
-  <div *ngFor="let q of questions">
-    <p [innerHTML]='q.question'>
-    </p>
-    <p [hidden]='!shown'  class="bg-info text-white" [innerHTML]='q.correct_answer'>
-    </p>
+<div class="container">
+  <form (ngSubmit)="getQuestions()" [formGroup]="qForm">
+    <div class="form-group">
+      <label for="numQuest">Number of Questions</label>
+      <input type="number" class="form-control" id="numQuest" value="10" formControlName="num_q">
+    </div>
+    <div class="form-group">
+      <label for="categ">Category</label>
+      <select class="form-control" id="categ" formControlName="categ">
+        <option *ngFor="let cat of categories"[value]="cat.value">{{ cat.title }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="difficulty">Difficulty</label>
+      <select class="form-control" id="difficulty" formControlName="difficulty">
+        <option *ngFor="let diff of difficulties" [value]="diff.value">{{ diff.level }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select class="form-control" id="type" formControlName="type">
+        <option *ngFor="let tp of types" [value]="tp.value">{{ tp.name }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Display Questions</button>
+  </form>
+  <button *ngIf="ans" (click)="shown = !shown" class="btn btn-secondary">{{ shown ? 'Masquer les réponses' : 'Afficher les réponses' }}</button>
+  <div *ngIf="questions">
+    <div *ngFor="let q of questions">
+      <p [innerHTML]='q.question'>
+      </p>
+      <p [hidden]='!shown'  class="bg-info text-white" [innerHTML]='q.correct_answer'>
+      </p>
+    </div>
   </div>
 </div>
