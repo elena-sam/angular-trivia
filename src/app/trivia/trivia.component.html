@@ -1,0 +1,27 @@
+<form [formGroup]="Form" #form="ngForm">
+  <label>
+    Number:
+    <input type="text" formControlName="number" [(ngModel)]="amount">
+
+  </label>
+
+  <label>
+    Category:
+    <input type="text" formControlName="category" [(ngModel)]="category">
+
+  </label>
+
+  <label>
+    Difficulty:
+    <input type="text" formControlName="difficulty" [(ngModel)]="difficulty">
+
+  </label>
+
+  <label>
+    Type:
+    <input type="text" formControlName="type" [(ngModel)]="type">
+
+  </label>
+  <br />
+  <button (click)="generateUrl()">Generate URL</button>
+</form>
