@@ -39,14 +39,14 @@ Le formulaire doit permettre de recherche des questions sur l'API : https://open
 * un bouton `Annuler` de type `reset`.
 
 A l'envoie du formulaire, génère l'url d'appel à l'API et affiche la dans la console de ton navigateur. L'URL devrait ressembler à quelque chose comme :\
-https://opentdb.com/api.php?amount=25\
+[https://opentdb.com/api.php?amount=25]\
 https://opentdb.com/api.php?difficulty=hard&type=boolean&amount=25\
 https://opentdb.com/api.php?amount=12&difficulty=medium&category=9&type=boolean\
 https://opentdb.com/api.php?type=multiple&amount=25&category=9&difficulty=easy\
 ...
 
 BONUS :
-* Utilise la balise `<select>` pour les champs `Difficulté`, `Type` (code les valeurs en durs).\
+* Utilise la balise `<select>` pour les champs `Difficulté`, `Type` (code les valeurs en durs).
 * Fait appel à l'api https://opentdb.com/api_category.php pour récupérer la liste des catégories et remplis la balise `<select>`.
 
 ## 1.1 BONUS : Création d'un formulaire (bis)
