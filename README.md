@@ -14,12 +14,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 - [x] Routing
 - [x] Route resolver
 - [x] Guard
-- [] Directive
-- [] Custom directive
-- [] Pipi
-- [] Custom pipe
-- [] @Input
-- [] @Output
+- [ ] Directive
+- [ ] Custom directive
+- [ ] Pipi
+- [ ] Custom pipe
+- [ ] @Input
+- [ ] @Output
 
 ## 1. Création d'un formulaire
 
