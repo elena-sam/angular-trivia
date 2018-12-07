@@ -56,8 +56,8 @@ Refait le même formulaire (dans un nouveau component) mais cette fois en utilis
 ## 2. Service d'appel à l'API opentdb.com/api.php
 
 * Créer un service avec une méthode `search`, elle prendra en paramètre les paramètres nécessaire pour générer l'URL précédente. 
-* Tu peux déporter le code qui te servait à générer l'URL dans ton service.\
-* Injecte le service `HttpClient`, utilise le pour intérroger l'API avec l'url générée et affiche les questions récupérés en dessous de ton formulaire.\
+* Tu peux déporter le code qui te servait à générer l'URL dans ton service.
+* Injecte le service `HttpClient`, utilise le pour intérroger l'API avec l'url générée et affiche les questions récupérés en dessous de ton formulaire.
 
 **ATTENTION ! L'URL généré ne renvois pas forcement de question en fonction des critères renseignés**
 * Créer un service pour faire appel à l'API, retire l'injection du service `HttpClient` dans tes components et utilise ton service à la place.
