@@ -38,7 +38,7 @@ Le formulaire doit permettre de recherche des questions sur l'API : https://open
 * un bouton `Afficher` de type `submit`.
 * un bouton `Annuler` de type `reset`.
 
-A l'envoie du formulaire, génère l'url d'appel à l'API et affiche la dans la console de ton navigateur. L'URL devrait ressembler à quelque chose comme :\
+A l'envoie du formulaire, génère l'url d'appel à l'API et affiche la dans la console de ton navigateur. L'URL devrait ressembler à quelque chose comme :
 - https://opentdb.com/api.php?amount=25
 - https://opentdb.com/api.php?difficulty=hard&type=boolean&amount=25
 - https://opentdb.com/api.php?amount=12&difficulty=medium&category=9&type=boolean
