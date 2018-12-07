@@ -39,13 +39,10 @@ Le formulaire doit permettre de recherche des questions sur l'API : https://open
 * un bouton `Annuler` de type `reset`.
 
 A l'envoie du formulaire, génère l'url d'appel à l'API et affiche la dans la console de ton navigateur. L'URL devrait ressembler à quelque chose comme :\
-https://opentdb.com/api.php?amount=25
-
-https://opentdb.com/api.php?difficulty=hard&type=boolean&amount=25
-
-https://opentdb.com/api.php?amount=12&difficulty=medium&category=9&type=boolean
-
-https://opentdb.com/api.php?type=multiple&amount=25&category=9&difficulty=easy
+- https://opentdb.com/api.php?amount=25
+- https://opentdb.com/api.php?difficulty=hard&type=boolean&amount=25
+- https://opentdb.com/api.php?amount=12&difficulty=medium&category=9&type=boolean
+- https://opentdb.com/api.php?type=multiple&amount=25&category=9&difficulty=easy
 ...
 
 BONUS :
@@ -97,7 +94,7 @@ Créer 3 routes et un menu :
 
 ### 5.1 /login
 
-/login affiche le formulaire d'authentification.\
+/login affiche le formulaire d'authentification.
 * Si l'authentification est un succés tu dois renvoyer l'utilisateur sur la route `/search`.
 * Sinon reste sur la route `/login` mais indique à l'utilisateur que l'autentification a échoué (en affichant un message en dessous du formulaire).
 
@@ -113,9 +110,9 @@ Plusieurs possibilités s'offre à toi :
 ### 5.3 Menu 
 
 Créer un composant menu qui sera afficher sur chaque route, il te permettera de naviguer entre les différentes vues de ton application à l'aide de la directive `routerLink`.
-* Tu devrais au minimum avoir trois items "login/logout", "search", "result".\
-* Si l'utilisateur n'est pas authentifié seul l'item "login" est affiché.\
-* Si l'utilisateur est authentifié l'item "login" devient "logout" et les items "search" et "result" sont affichés.\
+* Tu devrais au minimum avoir trois items "login/logout", "search", "result".
+* Si l'utilisateur n'est pas authentifié seul l'item "login" est affiché.
+* Si l'utilisateur est authentifié l'item "login" devient "logout" et les items "search" et "result" sont affichés.
 
 ## 6. Sécuriser une route
 
@@ -124,9 +121,9 @@ Ressources :
 * [implementing guards](https://dzone.com/articles/implementing-guard-in-angular-5-app)
 * [CanActivate API](https://angular.io/api/router/CanActivate)
 
-Créé une classe (représentant un "guard", tu peux utiliser le CLI Angular) qui implémentera l'interface `CanActivate` ainsi que la méthode `canActivate(..)`(n'oublis pas l'annotation `@Injectable()`).\
+Créé une classe (représentant un "guard", tu peux utiliser le CLI Angular) qui implémentera l'interface `CanActivate` ainsi que la méthode `canActivate(..)`(n'oublis pas l'annotation `@Injectable()`).
 * La méthode `canActivate` utilisera le service d'authentification pour authorizer/refuser l'accès à une route, selon si l'utilisateur est authentifié ou non.
-* Protège ensuite les routes `/search` et `/result` avec le "guard" créer précédemment.\
+* Protège ensuite les routes `/search` et `/result` avec le "guard" créer précédemment.
 
 Test si ton guard fonctionne bien, n'oublis pas de te déconnecter ou de supprimer la variable `isLogin` a l'aide du `Storage Inspetor`
 
