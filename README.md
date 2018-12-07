@@ -7,19 +7,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Notions :
-[x] Template Driven Form
-[x] Model Driven Form (Reactive Form)
-[x] Appel HTTP
-[x] Service
-[x] Routing
-[x] Route resolver
-[x] Guard
-[] Directive
-[] Custom directive
-[] Pipi
-[] Custom pipe
-[] @Input
-[] @Output
+- [x] Template Driven Form
+- [x] Model Driven Form (Reactive Form)
+- [x] Appel HTTP
+- [x] Service
+- [x] Routing
+- [x] Route resolver
+- [x] Guard
+- [] Directive
+- [] Custom directive
+- [] Pipi
+- [] Custom pipe
+- [] @Input
+- [] @Output
 
 ## 1. Création d'un formulaire
 
