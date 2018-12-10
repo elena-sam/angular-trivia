@@ -51,7 +51,7 @@ BONUS :
 
 ## 1.1 BONUS : Création d'un formulaire (bis)
 
-Refait le même formulaire (dans un nouveau component) mais cette fois en utilisant un `reactive form` (FormGroup, FormControl) si tu avais fait un `template driven form` (ngModel), sinon fait l'inverse.
+Refait le même formulaire (dans un nouveau component) mais cette fois en utilisant un `reactive form` (FormGroup, FormControl) si tu avais fait un `template driven form` (ngModel), sinon fais l'inverse.
 
 ## 2. Service d'appel à l'API opentdb.com/api.php
 
