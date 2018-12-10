@@ -89,6 +89,7 @@ Ressources :
 * [API NavigationExtras queryParams](https://angular.io/api/router/NavigationExtras#queryParams)
 * [queryParams](https://angular-2-training-book.rangle.io/handout/routing/query_params.html)
 * [routerLink directive](https://angular.io/api/router/RouterLink#description)
+* [route resolver](https://angular.io/api/router/Resolve)
 
 Créer 3 routes et un menu :
 
@@ -106,7 +107,7 @@ Créer 3 routes et un menu :
 Plusieurs possibilités s'offre à toi :
 * Récuperer le résultat de l'API dans le formulaire de recherche et ensuite envoyer les données vers la page de resultat pour afficher les questions.
 * Envoyer les paramètres vers la page de résultat via la propriété `queryParams` et ce sera le composant de cette page qui se chargera d'appeler l'API avec les bons paramètres
-
+* Envoyer les paramètres vers la page de résultat via la propriété `queryParams` et ce sera la route via un route resolver (avant le chargement du composant) qui se chargera d'appeler l'API avec les bons paramètres
 ### 5.3 Menu 
 
 Créer un composant menu qui sera afficher sur chaque route, il te permettera de naviguer entre les différentes vues de ton application à l'aide de la directive `routerLink`.
