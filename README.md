@@ -14,7 +14,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 - [x] Routing
 - [x] Route resolver
 - [x] Guard
-- [ ] Directive
+- [x] Directive
 - [ ] Custom directive
 - [ ] Pipe
 - [ ] Custom pipe
