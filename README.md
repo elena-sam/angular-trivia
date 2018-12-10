@@ -70,7 +70,7 @@ Créer un formulaire d'authentification avec les champs suivants :
 * `Username` de type string et doit être requis
 * `Password` de type password et doit être requis.
 
-L'envoie du formulaire doit être déclenché par l'événement `ngSubmit` de la directive `ngForm` (pour l'instant l'envoie du formulaire ne déclenche)
+L'envoie du formulaire doit être déclenché par l'événement `ngSubmit` de la directive `ngForm` (pour l'instant l'envoie du formulaire ne déclenche pas d'operation).
 
 ## 5. Service d'autentification
 
