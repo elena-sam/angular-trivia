@@ -18,9 +18,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 - [ ] Custom directive
 - [ ] Pipe
 - [ ] Custom pipe
-- [ ] @Input
+- [x] @Input
 - [ ] @Output
-
 ## 1. Création d'un formulaire
 
 L'URL de base de l'API est https://opentdb.com/api.php, elle doit être complété avec une **query string**, acceptant 4 paramètres :
@@ -60,9 +59,12 @@ Refait le même formulaire (dans un nouveau component) mais cette fois en utilis
 * Injecte le service `HttpClient`, utilise le pour intérroger l'API avec l'url générée et affiche les questions récupérés en dessous de ton formulaire.
 
 **ATTENTION ! L'URL généré ne renvois pas forcement de question en fonction des critères renseignés**
-* Créer un service pour faire appel à l'API, retire l'injection du service `HttpClient` dans tes components et utilise ton service à la place.
 
-## 3. Formulaire d'authentification
+## 3. Affichage des questions avec @Input
+
+Créer un nouveau composant `question-detail` dont la responsabilité sera d'afficher une question. Ce composant aura une entrée `@Input` correspondant au formulaire à afficher (excatement comme dans le checkpoint 2 avec les pokemons).
+
+## 4. Formulaire d'authentification
 
 Créer un formulaire d'authentification avec les champs suivants :
 * `Username` de type string et doit être requis
@@ -70,7 +72,7 @@ Créer un formulaire d'authentification avec les champs suivants :
 
 L'envoie du formulaire doit être déclenché par l'événement `ngSubmit` de la directive `ngForm` (pour l'instant l'envoie du formulaire ne déclenche)
 
-## 4. Service d'autentification
+## 5. Service d'autentification
 
 Créer un service, qui comportera deux méthodes :
 * `login` qui vérifira le valeur du champ `Username` et `Password` (libre à toi de choisir la condition). Une fois la condidition validé, ajoute une variable `isLogin` a `true` dans le `sessionStorage` ou `localStorage` pour sauvgarder le login. La fonction doit aussi renvoyer `true` si l'autentification réussi sinon `false`.
@@ -81,7 +83,7 @@ Injecte ton service dans ton formulaire d'autentifcation, à l'envoie utilise to
 BONUS :
 * Au lieu de retourner un boolean, retourne un observable qui en cas de succés renvoie `true` dans le callback `next` sinon renvoie `false` dans le callback `error`
 
-## 5. Routing
+## 6. Routing
 
 Ressources : 
 * [router guide](https://angular.io/guide/router)
@@ -93,13 +95,13 @@ Ressources :
 
 Créer 3 routes et un menu :
 
-### 5.1 /login
+### 6.1 /login
 
 /login affiche le formulaire d'authentification.
 * Si l'authentification est un succés tu dois renvoyer l'utilisateur sur la route `/search`.
 * Sinon reste sur la route `/login` mais indique à l'utilisateur que l'autentification a échoué (en affichant un message en dessous du formulaire).
 
-### 5.2 /search et /results
+### 6.2 /search et /results
 
 /search qui affiche le formulaire de recherche.\
 /result qui affiche le résultat de la recherche.
@@ -108,14 +110,15 @@ Plusieurs possibilités s'offre à toi :
 * Récuperer le résultat de l'API dans le formulaire de recherche et ensuite envoyer les données vers la page de resultat pour afficher les questions.
 * Envoyer les paramètres vers la page de résultat via la propriété `queryParams` et ce sera le composant de cette page qui se chargera d'appeler l'API avec les bons paramètres
 * Envoyer les paramètres vers la page de résultat via la propriété `queryParams` et ce sera la route via un route resolver (avant le chargement du composant) qui se chargera d'appeler l'API avec les bons paramètres
-### 5.3 Menu 
+
+### 6.3 Menu 
 
 Créer un composant menu qui sera afficher sur chaque route, il te permettera de naviguer entre les différentes vues de ton application à l'aide de la directive `routerLink`.
 * Tu devrais au minimum avoir trois items "login/logout", "search", "result".
 * Si l'utilisateur n'est pas authentifié seul l'item "login" est affiché.
 * Si l'utilisateur est authentifié l'item "login" devient "logout" et les items "search" et "result" sont affichés.
 
-## 6. Sécuriser une route
+## 7. Sécuriser une route
 
 Ressources :
 * [can activate guards](https://atom-morgan.github.io/how-to-test-angular-canactivate-guards/)
