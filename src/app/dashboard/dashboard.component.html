@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <div class="title" fxLayout="row" fxLayoutAlign="center center">
+    <h1>ANGULAR TRIVIA</h1>
+  </div>
+</mat-toolbar>
+
+<mat-card class="form">
+  <div class="templateForm" [formGroup]="questionForm" fxLayout="column" fxLayoutAlign="space-around center">
+    <label>Number :
+      <input type="number" formControlName="number" required>
+    </label>
+    <label>Categorie :
+      <input type="text" formControlName="categorie">
+    </label>
+    <label>Difficulté :
+      <input type="text" formControlName="difficulte">
+    </label>
+    <label>type :
+      <input type="text" formControlName="type">
+    </label>
+  </div>
+  <div class="button" fxLayout="row" fxLayoutAlign="center center">
+      <button mat-raised-button color="primary" (click)="getQuestion()">Afficher</button>
+      <button mat-raised-button color="warn" (click)="reload()">Reset</button>
+  </div>
+
+  <mat-card class="example" *ngFor="let quest of question" fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center center">
+    <h2>{{quest.category}}</h2>
+    <p>{{quest.difficulty}}</p>
+    <p>{{quest.question}}</p>
+    <h3 [fxShow]="answer">{{quest.correct_answer}}</h3>
+    <button mat-raised-button color="accent" (click)="getAnswer()">Accent</button>
+  </mat-card>
+</mat-card>
+

@@ -1,0 +1,36 @@
+mat-toolbar{
+  background-color: black;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+}
+
+h1{
+  color: whitesmoke;
+  text-align: center;
+}
+
+div.title {
+  width: 100%;
+}
+
+div.templateForm{
+  display: table-caption;
+  text-align: center;
+}
+
+div.button{
+  margin: 3%;
+}
+
+label{
+  margin-top: 2%;
+}
+
+.example{
+    max-width: 400px;
+}
+
+h3{
+  color: blueviolet;
+}
