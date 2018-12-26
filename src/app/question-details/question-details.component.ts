@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ApiService } from '../common/api.service';
 
 @Component({
   selector: 'app-question-details',
@@ -13,7 +11,7 @@ export class QuestionDetailsComponent implements OnInit {
   answer: boolean;
   result: any;
 
-  constructor(private http: HttpClient, private service: ApiService) { }
+  constructor() { }
 
   ngOnInit() {
   }

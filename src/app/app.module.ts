@@ -12,12 +12,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionDetailsComponent } from './question-details/question-details.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     QuestionDetailsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
