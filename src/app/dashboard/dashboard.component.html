@@ -10,26 +10,31 @@
       <input type="number" formControlName="number" required>
     </label>
     <label>Categorie :
-      <input type="text" formControlName="categorie">
+      <input type="text" formControlName="categorie" list="ctg">
+      <datalist id="ctg">
+        <option *ngFor="let ctg of categorie">{{ctg.id}}</option>
+      </datalist>
     </label>
     <label>Difficulté :
-      <input type="text" formControlName="difficulte">
+      <input type="text" formControlName="difficulte" list="dfl">
+      <datalist id="dfl">
+        <option>easy</option>
+        <option>medium</option>
+        <option>hard</option>
+      </datalist>
     </label>
     <label>type :
-      <input type="text" formControlName="type">
+      <input type="text" formControlName="type" list="type">
+      <datalist id="type">
+        <option>multiple</option>
+        <option>boolean</option>
+      </datalist>
     </label>
   </div>
   <div class="button" fxLayout="row" fxLayoutAlign="center center">
       <button mat-raised-button color="primary" (click)="getQuestion()">Afficher</button>
       <button mat-raised-button color="warn" (click)="reload()">Reset</button>
   </div>
-
-  <mat-card class="example" *ngFor="let quest of question" fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center center">
-    <h2>{{quest.category}}</h2>
-    <p>{{quest.difficulty}}</p>
-    <p>{{quest.question}}</p>
-    <h3 [fxShow]="answer">{{quest.correct_answer}}</h3>
-    <button mat-raised-button color="accent" (click)="getAnswer()">Accent</button>
-  </mat-card>
 </mat-card>
 
+<app-question-details [question]="question"></app-question-details>

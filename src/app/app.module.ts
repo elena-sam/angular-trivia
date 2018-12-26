@@ -11,11 +11,13 @@ import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { QuestionDetailsComponent } from './question-details/question-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    QuestionDetailsComponent,
   ],
   imports: [
     BrowserModule,

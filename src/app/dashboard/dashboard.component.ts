@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../common/api.service';
+import { Question } from './../common/api.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,33 +12,32 @@ import { HttpClient } from '@angular/common/http';
 export class DashboardComponent implements OnInit {
   questionForm = this.fb.group({
     number: ['3', Validators.required],
-    categorie: ['4'],
-    difficulte: ['easy'],
-    type: ['multiple']
+    categorie: [''],
+    difficulte: [''],
+    type: ['']
   });
 
-  question: any;
-  answer: boolean
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  question: Question[];
+  categorie: any;
+  answer: boolean;
+  constructor(private fb: FormBuilder, private http: HttpClient, private service: ApiService) { }
 
   ngOnInit() {
     this.answer = false;
+
+    this.http.get(' https://opentdb.com/api_category.php').subscribe(res => {
+      this.categorie = res['trivia_categories'];
+      console.log(this.categorie);
+    });
   }
 
   getQuestion() {
     // tslint:disable-next-line:max-line-length
     const url = `https://opentdb.com/api.php?amount=${this.questionForm.value.number}&categorie=${this.questionForm.value.categorie}&type=${this.questionForm.value.type}&difficulty=${this.questionForm.value.difficulte}`;
 
-    this.http.get(url).subscribe(res => {
+    this.service.search(url).subscribe(res => {
       this.question = res['results'];
-      console.log(this.question);
     });
-
-    console.log(url);
-  }
-
-  getAnswer() {
-    this.answer = !this.answer;
   }
 
   reload() {
