@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../common/api.service';
 import { Question } from './../common/api.model';
+import { LoginService } from '../common/login.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
   question: Question[];
   categorie: any;
   answer: boolean;
-  constructor(private fb: FormBuilder, private http: HttpClient, private service: ApiService) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private service: ApiService, private login: LoginService) { }
 
   ngOnInit() {
     this.answer = false;
@@ -42,6 +43,10 @@ export class DashboardComponent implements OnInit {
 
   reload() {
     window.location.reload();
+  }
+
+  logout() {
+    this.login.logout();
   }
 
 }

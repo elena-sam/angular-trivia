@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
@@ -30,7 +30,8 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     FlexLayoutModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

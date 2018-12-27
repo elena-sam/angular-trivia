@@ -1,10 +1,14 @@
 <div fxLayout="column" fxLayoutAlign="space-around center">
   <img src="./../../assets/horse-logo2.jpg">
   <label>Username :
-    <input type="text" name="login">
+    <input type="text" class="form-control" [(ngModel)]="username" minlength="4" maxlength="15" name="login" id="login" #lgn="ngModel" required>
   </label>
   <label>Password :
-    <input type="password" name="password">
+    <input type="password" class="form-control" [(ngModel)]="password" minlength="4" maxlength="15" name="password" id="password" #pwd="ngModel" required>
   </label>
+  <div [hidden]="pwd.valid || pwd.pristine"
+     class="alert alert-danger">
+  Password is required
+</div>
   <button mat-raised-button color="primary" (click)="connectMe()">Connect me!</button>
 </div>
