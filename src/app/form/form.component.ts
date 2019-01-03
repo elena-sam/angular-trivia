@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, RequiredValidator } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TriviaService } from '../common/trivia.service';
 
 @Component({
@@ -29,7 +29,7 @@ export class FormComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private service: TriviaService) {
     this.triviaForm = this.fb.group({
-      amount: ['10', RequiredValidator],
+      amount: ['10', Validators.compose([Validators.min(3), Validators.required])],
       category: [''],
       difficulty: [''],
       type: [''],

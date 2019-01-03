@@ -21,14 +21,20 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-button mat-raised-button color="primary" type="submit">Afficher</button>
+  <button mat-button mat-raised-button color="primary" type="submit" [disabled]="!triviaForm.valid">Afficher</button>
   <button mat-button mat-raised-button type="reset">Annuler</button>
 </form>
 
-<mat-grid-list cols="4" rowHeight="2:1">
-  <mat-grid-tile (click)="questionSide[i] = !questionSide[i]" fxLayoutAlign="center center" *ngFor="let q of questions; let i=index"
-  [ngStyle]="{'background-color':questionSide[i] === false ? 'pink' : 'lightblue' }" >
-    {{questionSide[i] === false ? q.correct_answer : q.question}}
-  </mat-grid-tile>
-</mat-grid-list>
+<div *ngIf="questions">
+  <mat-grid-list cols="4" rowHeight="2:1" *ngIf="questions.length > 0; else noQuestions">
+    <mat-grid-tile (click)="questionSide[i] = !questionSide[i]" fxLayoutAlign="center center" *ngFor="let q of questions; let i=index"
+    [ngStyle]="{'background-color':questionSide[i] === false ? 'pink' : 'lightblue' }" >
+      {{questionSide[i] === false ? q.correct_answer : q.question}}
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <ng-template #noQuestions>
+    Pas de questions répondant à ces critères
+  </ng-template>
+</div>
 
