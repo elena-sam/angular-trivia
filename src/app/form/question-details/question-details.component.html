@@ -1,0 +1,5 @@
+<div *ngIf="!side; else q" [innerHTML]="question.correct_answer"></div>
+
+<ng-template #q>
+  <div [innerHTML]="question.question"></div>
+</ng-template>

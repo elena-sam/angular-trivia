@@ -11,11 +11,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
+import { QuestionDetailsComponent } from './form/question-details/question-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    QuestionDetailsComponent
   ],
   imports: [
     BrowserModule,

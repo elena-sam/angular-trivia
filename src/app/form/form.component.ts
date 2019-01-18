@@ -53,6 +53,6 @@ export class FormComponent implements OnInit {
       this.questions = res.results;
     });
 
-    this.questionSide = Array(+amount).fill(true);
+    this.questionSide = Array(+amount).fill(true); // create a table of a given length ('amount'), and fill it with 'true'
   }
 }
