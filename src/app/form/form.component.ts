@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TriviaService } from '../common/trivia.service';
 
@@ -8,6 +8,8 @@ import { TriviaService } from '../common/trivia.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  breakpoint: number;
+
   triviaForm: FormGroup;
   questionSide: boolean[];
   difficulties = [
@@ -27,7 +29,10 @@ export class FormComponent implements OnInit {
   categories: any[];
   questions: any;
 
-  constructor(private fb: FormBuilder, private service: TriviaService) {
+  constructor(
+      private fb: FormBuilder,
+      private service: TriviaService
+    ) {
     this.triviaForm = this.fb.group({
       amount: ['10', Validators.compose([Validators.min(3), Validators.required])],
       category: [''],
@@ -40,9 +45,26 @@ export class FormComponent implements OnInit {
     this.service.getCategories().subscribe(res => {
       this.categories = res.trivia_categories;
     });
+
+    this.onResize(window.innerWidth);
   }
 
-  onSubmit() {
+  onResize(event): void {
+    if (event.target) {
+      event = event.target.innerWidth;
+    }
+    if (event <= 400) {
+      this.breakpoint = 1;
+    } else if (event <= 800) {
+      this.breakpoint = 2;
+    } else if (event <= 1000) {
+      this.breakpoint = 3;
+    } else {
+      this.breakpoint = 4;
+    }
+  }
+
+  onSubmit(): void {
     const amount = this.triviaForm.get('amount').value;
     const cat = this.triviaForm.get('category').value;
     const diff = this.triviaForm.get('difficulty').value;

@@ -26,7 +26,7 @@
 </form>
 
 <div *ngIf="questions">
-  <mat-grid-list cols="4" rowHeight="2:1" *ngIf="questions.length > 0; else noQuestions">
+  <mat-grid-list [cols]="breakpoint" rowHeight="2:1" *ngIf="questions.length > 0; else noQuestions" (window:resize)="onResize($event)">
     <mat-grid-tile (click)="questionSide[i] = !questionSide[i]" fxLayoutAlign="center center" *ngFor="let q of questions; let i=index"
       [ngStyle]="{'background-color':questionSide[i] === false ? 'pink' : 'lightblue' }">
         <app-question-details [question]="q" [side]="questionSide[i]"></app-question-details>
