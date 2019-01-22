@@ -24,7 +24,7 @@ export class QuestionDetailsComponent implements OnInit {
       this.choices.push(incorrect);
       }
     } else {
-      this.choices.push(this.question.incorrect_answers);
+      this.choices.push(this.question.incorrect_answers[0]);
     }
     this.shuffle(this.choices);
   }
@@ -41,7 +41,7 @@ export class QuestionDetailsComponent implements OnInit {
 
   submitAnswer(selectedOption): void {
     this.answered = true;
-    this.answerIsShown = false;
+    this.answerIsShown = true;
     this.optionSelected = selectedOption;
     if (selectedOption === this.question.correct_answer) {
       this.result.emit(true);

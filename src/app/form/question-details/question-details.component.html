@@ -1,5 +1,5 @@
 <div class="answerBlock" *ngIf="answered; else q">
-<button mat-button (click)="answerIsShown = !answerIsShown" class="toggleButton">{{ answerIsShown ? 'réponse' : 'question' }}</button>
+<button mat-button (click)="answerIsShown = !answerIsShown" class="toggleButton">{{ answerIsShown ? 'question' : 'réponse' }}</button>
   <div *ngIf="answerIsShown; else questionIsShown">
     <p>
       <strong>La bonne réponse était :</strong>
