@@ -1,10 +1,8 @@
 <mat-grid-list [cols]="breakpoint" rowHeight="300px" *ngIf="questions.length > 0" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let q of questions; let i=index"
-[ngClass]="rightAnswers[i] ? 'correct' : rightAnswers[i] === false ? 'incorrect' : normal">
+[ngClass]="rightAnswers[i] ? 'correct' : rightAnswers[i] === false ? 'incorrect' : 'normal'">
     <app-question-details [question]="q" (result)="checkAnswer($event, i)"></app-question-details>
   </mat-grid-tile>
 </mat-grid-list>
 
 <button mat-raised-button color="secondary" [routerLink]="['/trivia']">Retour vers le formulaire</button>
-
-<p>{{total}}</p>

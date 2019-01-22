@@ -12,6 +12,8 @@ export class QuestionDetailsComponent implements OnInit {
 
   choices: string[] = [];
   answered = false;
+  optionSelected: string;
+  answerIsShown: boolean;
 
   constructor() { }
 
@@ -25,7 +27,6 @@ export class QuestionDetailsComponent implements OnInit {
       this.choices.push(this.question.incorrect_answers);
     }
     this.shuffle(this.choices);
-    console.log(this.choices);
   }
 
   shuffle(array): void {
@@ -39,11 +40,12 @@ export class QuestionDetailsComponent implements OnInit {
   }
 
   submitAnswer(selectedOption): void {
+    this.answered = true;
+    this.answerIsShown = false;
+    this.optionSelected = selectedOption;
     if (selectedOption === this.question.correct_answer) {
-      this.answered = true;
       this.result.emit(true);
     } else {
-      this.answered = true;
       this.result.emit(false);
     }
   }

@@ -34,11 +34,9 @@ export class MainNavComponent implements OnInit {
 
   private updateStatus(status: boolean): void {
     this.isLogged = status;
-    console.log(status);
   }
 
   logOut(): void {
-    console.log('logout');
     this.router.navigate(['/login']);
     this.loginService.logOut().subscribe(status => this.updateStatus(status));
   }

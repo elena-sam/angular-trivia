@@ -23,7 +23,6 @@ export class LoginService {
 
   logOut(): Observable<any> {
     sessionStorage.removeItem('isLoggedIn');
-    console.log('status');
     this.getStatus.emit(false);
     return of(false);
   }

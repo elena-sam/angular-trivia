@@ -14,6 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
@@ -25,6 +26,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TrueFalsePipe } from './true-false.pipe';
+import { ScoreDialogComponent } from './score-dialog/score-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { TrueFalsePipe } from './true-false.pipe';
     QuestionsComponent,
     MainNavComponent,
     TrueFalsePipe,
+    ScoreDialogComponent,
   ],
   imports: [RouterModule.forRoot(
       appRoutes
@@ -57,13 +60,15 @@ import { TrueFalsePipe } from './true-false.pipe';
     MatListModule,
     MatCardModule,
     MatRadioModule,
+    MatDialogModule,
     FlexLayoutModule
   ],
   providers: [
     QuestionsResolve,
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000, horizontalPosition: 'right' } },
-    TrueFalsePipe
+    TrueFalsePipe,
   ],
+  entryComponents: [ScoreDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,28 @@
-<div *ngIf="answered; else q" [innerHTML]="question.correct_answer"></div>
+<div class="answerBlock" *ngIf="answered; else q">
+<button mat-button (click)="answerIsShown = !answerIsShown" class="toggleButton">{{ answerIsShown ? 'réponse' : 'question' }}</button>
+  <div *ngIf="answerIsShown; else questionIsShown">
+    <p>
+      <strong>La bonne réponse était :</strong>
+    </p>
+    <p>
+      {{ question.correct_answer | trueFalse }}
+    </p>
+  </div>
+  <ng-template #questionIsShown>
+    <div>
+      <p>
+        <strong>Question :</strong>
+      </p>
+      <p>{{ question.question }}</p>
+      <p>
+        <strong>Votre réponse :</strong>
+      </p>
+      <p>
+        {{ optionSelected | trueFalse }}
+      </p>
+    </div>
+  </ng-template>
+</div>
 
 <ng-template #q>
   <div class="question" fxLayout="column" fxLayoutGap="25px">

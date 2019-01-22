@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { TriviaService } from '../common/trivia.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { ScoreDialogComponent } from '../score-dialog/score-dialog.component';
 
 @Component({
   selector: 'app-questions',
@@ -13,11 +14,12 @@ export class QuestionsComponent implements OnInit {
   amount: number;
   breakpoint: number;
   rightAnswers: boolean[];
-  wrongAnswers: boolean[];
   total: number;
 
   constructor(
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
+    private router: Router) { }
 
   ngOnInit() {
     this.questions = this.route.snapshot.data['questions'].results; // questions comes from app.routing.ts
@@ -27,7 +29,6 @@ export class QuestionsComponent implements OnInit {
         this.amount = +params['amount'] || 10; // default to '10' if no param provided
       });
     this.rightAnswers = Array(this.amount); // create a table of a given length ('amount')
-    this.wrongAnswers = Array(this.amount); // create a table of a given length ('amount')
 
     this.onResize(window.innerWidth);
     this.total = 0;
@@ -49,12 +50,25 @@ export class QuestionsComponent implements OnInit {
   }
 
   checkAnswer(event, index) {
-    console.log('event', event);
-    console.log('right', this.rightAnswers[index]);
     this.rightAnswers[index] = event;
     if (event) {
       this.total++;
     }
-    console.log('right', this.rightAnswers[index]);
+    if (!this.rightAnswers.includes(undefined)) {
+      this.openDialog();
+    }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ScoreDialogComponent, {
+      width: '500px',
+      data: { nbOfQuestions: this.amount, score: this.total }
+    });
+
+    dialogRef.afterClosed().subscribe(userWantsNewQuestions => {
+      if (userWantsNewQuestions) {
+        this.router.navigate(['/trivia']);
+      }
+    });
   }
 }
