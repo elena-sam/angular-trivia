@@ -2,8 +2,14 @@
   {{ headerMessage }}
 </h2>
 <mat-dialog-content>
-  <p>
+  <p *ngIf="score<=1">
+    Vous avez obtenu {{ score }} bonne réponse sur {{ nbOfQuestions }}, soit {{ percent }}% de bonnes réponses
+  </p>
+  <p *ngIf="score>1">
     Vous avez obtenu {{ score }} bonnes réponses sur {{ nbOfQuestions }}, soit {{ percent }}% de bonnes réponses
+  </p>
+  <p>
+    Résultat obtenu le {{ date | date:'EEEE dd LLLL':'fr-FR'}} à {{ date | date:'mediumTime':'fr-FR'}}
   </p>
 </mat-dialog-content>
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">

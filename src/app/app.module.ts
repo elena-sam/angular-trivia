@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr);
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,6 +29,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TrueFalsePipe } from './true-false.pipe';
 import { ScoreDialogComponent } from './score-dialog/score-dialog.component';
+import { registerLocaleData } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -61,12 +64,13 @@ import { ScoreDialogComponent } from './score-dialog/score-dialog.component';
     MatCardModule,
     MatRadioModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [
     QuestionsResolve,
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000, horizontalPosition: 'right' } },
     TrueFalsePipe,
+    { provide: LOCALE_ID, useValue: 'fr-FR' }
   ],
   entryComponents: [ScoreDialogComponent],
   bootstrap: [AppComponent]

@@ -5,8 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TrueFalsePipe implements PipeTransform {
 
-  transform(value: string): any {
-    console.log(value);
+  transform(value: string): string {
     switch (value) {
       case 'True':
         return 'Vrai';

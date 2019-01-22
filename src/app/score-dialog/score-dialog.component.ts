@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -6,7 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   templateUrl: './score-dialog.component.html',
   styleUrls: ['./score-dialog.component.css']
 })
-export class ScoreDialogComponent {
+export class ScoreDialogComponent implements OnInit {
 
   headerMessage: string;
   score: number;
@@ -19,15 +19,12 @@ export class ScoreDialogComponent {
     2: 'Bien joué !',
     3: 'Félicitations !!!'
   };
+  date: number;
 
   constructor(public dialogRef: MatDialogRef<ScoreDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data) {
       this.score = data.score;
       this.nbOfQuestions = data.nbOfQuestions;
-      console.log(data);
-      console.log(this.nbOfQuestions);
-      console.log(this.nbOfQuestions * 30);
-      console.log(this.nbOfQuestions * 30 / 100);
       if (this.score < (this.nbOfQuestions * 30 / 100 )) {
         this.headerMessage = this.message[0];
       } else if (this.score < (this.nbOfQuestions * 50 / 100)) {
@@ -40,4 +37,7 @@ export class ScoreDialogComponent {
     this.percent = Math.ceil(this.score / this.nbOfQuestions * 100);
   }
 
+  ngOnInit(): void {
+    this.date = Date.now();
+  }
 }
