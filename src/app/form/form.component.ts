@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TriviaService } from '../common/trivia.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-form',
@@ -31,7 +32,8 @@ export class FormComponent implements OnInit {
       private fb: FormBuilder,
       private service: TriviaService,
       private router: Router,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      private snackBar: MatSnackBar
     ) {
     this.triviaForm = this.fb.group({
       amount: ['10', Validators.compose([Validators.min(3), Validators.required])],
@@ -48,13 +50,17 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const amount = this.triviaForm.get('amount').value;
-    const cat = this.triviaForm.get('category').value;
-    const diff = this.triviaForm.get('difficulty').value;
-    const type = this.triviaForm.get('type').value;
+    if (this.triviaForm.valid) {
+      const amount = this.triviaForm.get('amount').value;
+      const cat = this.triviaForm.get('category').value;
+      const diff = this.triviaForm.get('difficulty').value;
+      const type = this.triviaForm.get('type').value;
 
-    this.router.navigate(['/questions'], {
-      queryParams: { amount: amount, cat: cat, diff: diff, type: type }
-    });
+      this.router.navigate(['/questions'], {
+        queryParams: { amount: amount, cat: cat, diff: diff, type: type }
+      });
+    } else {
+      this.snackBar.open('Veuillez compléter les champs obligatoires');
+    }
   }
 }

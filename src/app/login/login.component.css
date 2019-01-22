@@ -3,6 +3,14 @@
   margin: 5rem auto 0 auto;
 }
 
-.card-content {
-  /* display: flex; */
+mat-card-header {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 90%;
+}
+
+button {
+  margin-top: 20px;
 }

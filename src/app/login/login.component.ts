@@ -29,15 +29,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const user = this.loginForm.get('username').value;
-    const pwd = this.loginForm.get('password').value;
-    this.loginService.logIn(user, pwd)
-      .subscribe(res => {
-        if (res) {
-          this.router.navigate(['/trivia'], { relativeTo: this.route});
-        } else {
-          this.snackBar.open('Authentication failed', 'OK', {duration: 5000});
-        }
-      });
+    if (this.loginForm.valid) {
+      const user = this.loginForm.get('username').value;
+      const pwd = this.loginForm.get('password').value;
+      this.loginService.logIn(user, pwd)
+        .subscribe(res => {
+          if (res) {
+            this.router.navigate(['/trivia'], { relativeTo: this.route});
+          } else {
+            this.snackBar.open('Authentication failed', 'OK', {duration: 5000});
+          }
+        });
+    } else {
+      this.snackBar.open('Veuillez compléter tous les champs');
+    }
+
   }
 }
