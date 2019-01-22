@@ -1,8 +1,10 @@
-<mat-grid-list [cols]="breakpoint" rowHeight="2:1" *ngIf="questions.length > 0" (window:resize)="onResize($event)">
-  <mat-grid-tile (click)="questionSide[i] = !questionSide[i]" fxLayoutAlign="center center" *ngFor="let q of questions; let i=index"
-    [ngStyle]="{'background-color':questionSide[i] === false ? 'pink' : 'lightblue' }">
-    <app-question-details [question]="q" [side]="questionSide[i]"></app-question-details>
+<mat-grid-list [cols]="breakpoint" rowHeight="300px" *ngIf="questions.length > 0" (window:resize)="onResize($event)">
+  <mat-grid-tile *ngFor="let q of questions; let i=index"
+[ngClass]="rightAnswers[i] ? 'correct' : rightAnswers[i] === false ? 'incorrect' : normal">
+    <app-question-details [question]="q" (result)="checkAnswer($event, i)"></app-question-details>
   </mat-grid-tile>
 </mat-grid-list>
 
 <button mat-raised-button color="secondary" [routerLink]="['/trivia']">Retour vers le formulaire</button>
+
+<p>{{total}}</p>

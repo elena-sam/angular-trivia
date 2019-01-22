@@ -1,0 +1,16 @@
+mat-grid-tile {
+  height: 60px;
+}
+
+.correct {
+  background-color: greenyellow;
+}
+
+.incorrect {
+  background-color: darkred;
+  color: white;
+}
+
+.normal {
+  background-color: rgb(194, 194, 194);
+}

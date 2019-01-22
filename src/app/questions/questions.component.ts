@@ -12,7 +12,9 @@ export class QuestionsComponent implements OnInit {
   questions: any;
   amount: number;
   breakpoint: number;
-  questionSide: boolean[];
+  rightAnswers: boolean[];
+  wrongAnswers: boolean[];
+  total: number;
 
   constructor(
     private route: ActivatedRoute) { }
@@ -24,9 +26,11 @@ export class QuestionsComponent implements OnInit {
       .subscribe(params => {
         this.amount = +params['amount'] || 10; // default to '10' if no param provided
       });
-    this.questionSide = Array(this.amount).fill(true); // create a table of a given length ('amount'), and fill it with 'true'
+    this.rightAnswers = Array(this.amount); // create a table of a given length ('amount')
+    this.wrongAnswers = Array(this.amount); // create a table of a given length ('amount')
 
     this.onResize(window.innerWidth);
+    this.total = 0;
   }
 
   onResize(event): void {
@@ -44,4 +48,13 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
+  checkAnswer(event, index) {
+    console.log('event', event);
+    console.log('right', this.rightAnswers[index]);
+    this.rightAnswers[index] = event;
+    if (event) {
+      this.total++;
+    }
+    console.log('right', this.rightAnswers[index]);
+  }
 }

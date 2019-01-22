@@ -1,5 +1,10 @@
-<div *ngIf="!side; else q" [innerHTML]="question.correct_answer"></div>
+<div *ngIf="answered; else q" [innerHTML]="question.correct_answer"></div>
 
 <ng-template #q>
-  <div [innerHTML]="question.question"></div>
+  <div class="question" fxLayout="column" fxLayoutGap="25px">
+    <div [innerHTML]="question.question"></div>
+    <mat-radio-group fxLayout="column wrap">
+      <mat-radio-button *ngFor="let c of choices" value="c" (click)="submitAnswer(c)">{{c | trueFalse}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
 </ng-template>
