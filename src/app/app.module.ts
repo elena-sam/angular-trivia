@@ -6,10 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MatButtonModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
@@ -18,6 +21,8 @@ import { LoginComponent } from './login/login.component';
 import { appRoutes } from './app.routing';
 import { QuestionsResolve } from './questions.resolve';
 import { QuestionsComponent } from './questions/questions.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { QuestionsComponent } from './questions/questions.component';
     QuestionDetailsComponent,
     LoginComponent,
     QuestionsComponent,
+    MainNavComponent,
   ],
   imports: [RouterModule.forRoot(
       appRoutes
@@ -40,7 +46,14 @@ import { QuestionsComponent } from './questions/questions.component';
     MatSelectModule,
     MatGridListModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatIconModule,
     HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
   ],
   providers: [
     QuestionsResolve,

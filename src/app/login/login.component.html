@@ -1,9 +1,17 @@
-<form (ngSubmit)="onSubmit()" #form="ngForm"[formGroup]="loginForm">
-  <mat-form-field>
-    <input matInput placeholder="Username" formControlName="username" type="text" required>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="password" formControlName="password" type="password" required>
-  </mat-form-field>
-  <button mat-raised-button color="primary" type="submit">Log In</button>
-</form>
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Connexion</mat-card-title>
+    <mat-card-subtitle>Connectez-vous pour pouvoir accéder aux questions</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="card-content" fxFlex="column" fxLayoutAlign="center center">
+    <form (ngSubmit)="onSubmit()" #form="ngForm"[formGroup]="loginForm">
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username" type="text" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="password" formControlName="password" type="password" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Log In</button>
+    </form>
+  </mat-card-content>
+</mat-card>
